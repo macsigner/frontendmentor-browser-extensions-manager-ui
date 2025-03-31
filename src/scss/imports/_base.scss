@@ -1,9 +1,36 @@
+@use 'sass:math'
+
+;:root {
+    --gap: 1.2rem;
+    --default-radius: 2rem;
+
+    --color-neutral-900: #091540;
+    --color-neutral-300: #c6c6c6;
+    --color-red-700: #c7231a;
+}
+
+html {
+    font-size: 62.5%;
+}
+
 body {
-    font: 1.8rem/1.6 'Noto Sans';
+    font: 1.6rem/1.4 'Noto Sans', sans-serif;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: math.div(-0.5em, 16);
+    color: #535868;
+
 }
 
 img {
     vertical-align: middle;
     height: auto;
     max-width: 100%;
+}
+
+button,
+[type='submit'],
+label {
+    cursor: pointer;
 }

@@ -1,0 +1,42 @@
+/**
+ * tile bem module
+ */
+@use 'sass:math';
+
+.tile {
+    display: grid;
+    grid-template-columns: 6rem 227fr;
+    grid-template-rows: 1fr auto;
+    grid-gap: 2.4rem 1.6rem;
+    grid-template-areas: 'icon main' 'footer footer';
+    padding: 2rem;
+    border-radius: var(--default-radius);
+    box-shadow: 0 1px 5px 1px rgba(194, 206, 225, 0.22), 0 2px 2px 0 rgba(194, 206, 225, 0.2);
+    border: solid 1px #d6e2f5;
+    background-color: #fbfdfe;
+
+    &__image {
+        grid-area: icon;
+    }
+
+    &__main {
+        grid-area: main;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-area: footer;
+    }
+
+    &__title {
+        font-size: 2rem;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.2;
+        letter-spacing: math.div(-0.2em, 20);
+        color: var(--color-neutral-900);
+    }
+}

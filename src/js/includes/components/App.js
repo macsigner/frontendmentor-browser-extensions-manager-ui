@@ -18,11 +18,15 @@ export default class App {
 
     #getSingleHtml(obj) {
         return `
-            <article>
-                <img src="${obj.logo}" alt="${obj.name}">
-                <h2>${obj.name}</h2>
-                <div>${obj.description}</div>
-                <footer><button>Remove</button><label><input type="checkbox" ${obj.isActive ? 'checked="checked"' : ''}></label></footer>
+            <article class="tile">
+                <img src="${obj.logo}" alt="${obj.name}" class="tile__image">
+                <div class="tile__main">
+                    <h2>${obj.name}</h2>
+                    <div>${obj.description}</div>
+                </div>
+                <footer class="tile__footer">
+                    <button class="button">Remove</button><label class="check"><input type="checkbox" ${obj.isActive ? 'checked="checked"' : ''}></label>
+                </footer>
             </article>
         `;
     }

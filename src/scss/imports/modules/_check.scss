@@ -1,0 +1,30 @@
+/**
+ * check bem module
+ */
+
+.check {
+    --check-bg-color: var(--color-neutral-300);
+
+    display: flex;
+    justify-content: flex-start;
+    width: 3.6rem;
+    height: 2rem;
+    padding: 2px;
+    border-radius: 99em;
+    background-color: var(--check-bg-color);
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        display: block;
+        aspect-ratio: 1;
+        height: 100%;
+        border-radius: 99em;
+        background-color: white;
+    }
+
+    &:has(:checked) {
+        --check-bg-color: var(--color-red-700);
+        justify-content: flex-end;
+    }
+}
