@@ -14,4 +14,10 @@
     line-height: 1.4;
     letter-spacing: math.div(-0.5em, 16);
     color: var(--color-neutral-900);
+    background-color: #fbfdfe;
+
+    &.is-active {
+        color: #fbfdfe;
+        background-color: var(--color-red-700);
+    }
 }

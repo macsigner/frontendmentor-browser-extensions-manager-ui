@@ -1,17 +1,30 @@
 /**
  * filter-form bem module
  */
+@use '../mixins/media';
 
 .filter-form {
     margin-bottom: 5rem;
 
+    @include media.tablet {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 4.2rem;
+    }
+
     h2 {
         text-align: center;
         margin-bottom: 3.2rem;
+
+        @include media.tablet {
+            margin-bottom: 0;
+        }
     }
 
     ul {
         display: flex;
-        justify-content: space-around;
+        gap: 1.2rem;
+        justify-content: center;
     }
 }

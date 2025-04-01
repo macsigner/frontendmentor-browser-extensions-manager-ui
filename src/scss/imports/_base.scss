@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'mixins/media';
 
 :root {
     --gap: 1.2rem;
@@ -14,7 +15,7 @@ html {
 }
 
 body {
-    padding: 20px 16px 64px;
+    padding: 2rem 1.6rem 6.4rem;
     font: 1.6rem/1.4 'Noto Sans', sans-serif;
     font-weight: normal;
     font-stretch: normal;
@@ -22,6 +23,14 @@ body {
     letter-spacing: math.div(-0.5em, 16);
     color: #535868;
     background-image: linear-gradient(to bottom, #EBF2FC, #EEFBF9), linear-gradient(to bottom, #FFF, #FFF);
+
+    @include media.tablet {
+        padding: 2.4rem 3.2rem 6.4rem;
+    }
+
+    @include media.desktop {
+        padding-top: 4rem;
+    }
 }
 
 img {
