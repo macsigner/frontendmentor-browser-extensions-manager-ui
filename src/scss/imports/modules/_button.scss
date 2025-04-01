@@ -16,7 +16,8 @@
     color: var(--color-neutral-900);
     background-color: #fbfdfe;
 
-    &.is-active {
+    &.is-active,
+    &:where(:has(:checked)){
         color: #fbfdfe;
         background-color: var(--color-red-700);
     }

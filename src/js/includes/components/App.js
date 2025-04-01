@@ -3,16 +3,39 @@ import {delegate} from '../helper/tools';
 
 export default class App {
     #data;
+    #itemWrapper;
+    #filterForm;
     #el;
+    #activeFilter;
 
     constructor(el) {
         this.#data = this.#load();
         this.#el = el;
+        this.#itemWrapper = el.querySelector('#app');
+        this.#filterForm = this.#el.querySelector('.filter-form');
 
-        this.#el.addEventListener('click', delegate('button', e => {
+        this.#filterForm.addEventListener('change', e => {
+            const formData = new FormData(e.target.form);
+            let isActive = formData.get('isActive');
+
+            if (isActive === '*') {
+                this.#activeFilter = null;
+                this.render();
+
+                return;
+            }
+
+            this.#activeFilter = {
+                isActive: isActive === '1',
+            };
+
+            this.render();
+        });
+
+        this.#itemWrapper.addEventListener('click', delegate('button', e => {
             const key = e.target.closest('[data-key]')?.dataset.key;
 
-            if(!key) {
+            if (!key) {
                 return;
             }
 
@@ -21,14 +44,14 @@ export default class App {
             this.render();
         }));
 
-        this.#el.addEventListener('change', delegate('[type="checkbox"]', e => {
+        this.#itemWrapper.addEventListener('change', delegate('[type="checkbox"]', e => {
             const key = e.target.closest('[data-key]')?.dataset.key;
 
-            if(!key) {
+            if (!key) {
                 return;
             }
 
-            this.#data[key].isActive = e.target.checked;
+            this.#data[this.#data.findIndex(item => item.id === Number(key))].isActive = e.target.checked;
             this.#save();
         }));
 
@@ -36,12 +59,16 @@ export default class App {
     }
 
     render(data = this.#data) {
-        this.#el.innerHTML = data.map((obj, key) => this.#getSingleHtml(obj, key)).join('');
+        if (this.#activeFilter) {
+            data = this.#data.filter(item => item.isActive === this.#activeFilter.isActive);
+        }
+
+        this.#itemWrapper.innerHTML = data.map((obj, key) => this.#getSingleHtml(obj, key)).join('');
     }
 
-    #getSingleHtml(obj, key) {
+    #getSingleHtml(obj) {
         return `
-            <article class="tile" data-key="${key}">
+            <article class="tile" data-key="${obj.id}">
                 <img src="${obj.logo}" alt="${obj.name}" class="tile__image">
                 <div class="tile__main">
                     <h2 class="tile__title">${obj.name}</h2>
@@ -60,7 +87,11 @@ export default class App {
 
     #load() {
         let json = JSON.parse(localStorage.getItem('app'));
-
-        return json || data;
+        return (json || data).map((item, id) =>{
+            return {
+                ...item,
+                id,
+            }
+        });
     }
 }
