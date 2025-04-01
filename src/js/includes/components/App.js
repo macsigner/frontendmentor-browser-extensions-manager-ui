@@ -1,5 +1,6 @@
 import data from '../../../data/data.json';
 import {delegate} from '../helper/tools';
+
 export default class App {
     #data;
     #el;
@@ -15,7 +16,7 @@ export default class App {
                 return;
             }
 
-            const item = this.#data.splice(key, 1);
+            this.#data.splice(key, 1);
             this.#save();
             this.render();
         }));
@@ -34,10 +35,8 @@ export default class App {
         this.render();
     }
 
-    render() {
-        const html = this.#data.map((obj, key) => this.#getSingleHtml(obj, key)).join('');
-
-        this.#el.innerHTML = html;
+    render(data = this.#data) {
+        this.#el.innerHTML = data.map((obj, key) => this.#getSingleHtml(obj, key)).join('');
     }
 
     #getSingleHtml(obj, key) {
