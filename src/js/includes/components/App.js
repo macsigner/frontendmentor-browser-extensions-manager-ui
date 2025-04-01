@@ -21,7 +21,7 @@ export default class App {
             <article class="tile">
                 <img src="${obj.logo}" alt="${obj.name}" class="tile__image">
                 <div class="tile__main">
-                    <h2>${obj.name}</h2>
+                    <h2 class="tile__title">${obj.name}</h2>
                     <div>${obj.description}</div>
                 </div>
                 <footer class="tile__footer">

@@ -1,12 +1,12 @@
-@use 'sass:math'
+@use 'sass:math';
 
-;:root {
+:root {
     --gap: 1.2rem;
     --default-radius: 2rem;
 
     --color-neutral-900: #091540;
-    --color-neutral-300: #c6c6c6;
-    --color-red-700: #c7231a;
+    --color-neutral-300: #C6C6C6;
+    --color-red-700: #C7231A;
 }
 
 html {
@@ -14,13 +14,14 @@ html {
 }
 
 body {
+    padding: 20px 16px 64px;
     font: 1.6rem/1.4 'Noto Sans', sans-serif;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     letter-spacing: math.div(-0.5em, 16);
     color: #535868;
-
+    background-image: linear-gradient(to bottom, #EBF2FC, #EEFBF9), linear-gradient(to bottom, #FFF, #FFF);
 }
 
 img {
@@ -33,4 +34,18 @@ button,
 [type='submit'],
 label {
     cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+h2 {
+    font-size: 3.4rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--color-neutral-900);
 }

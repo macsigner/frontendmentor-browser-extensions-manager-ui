@@ -9,16 +9,25 @@
     <title>Frontend Mentor | Browser extensions manager UI</title>
 </head>
 <body>
-
-<header>Extensions List
-    <button></button>
+<header class="main-header">
+    <h1 class="h1"><img src="./src/assets/images/logo.svg" width="179" height="41" alt="Extensions"></h1>
+    <button type="button"></button>
 </header>
 <main>
-    <header>
-        <button>All</button>
-        <button>Active</button>
-        <button>Inactive</button>
-    </header>
+    <form class="filter-form">
+        <h2>Extensions List</h2>
+        <ul>
+            <li>
+                <button type="button" class="button">All</button>
+            </li>
+            <li>
+                <button type="button" class="button">Active</button>
+            </li>
+            <li>
+                <button type="button" class="button">Inactive</button>
+            </li>
+        </ul>
+    </form>
     <div id="app" class="tile-grid"></div>
 </main>
 <script src="./src/js/main.js" type="module"></script>

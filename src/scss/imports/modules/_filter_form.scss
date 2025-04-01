@@ -1,0 +1,17 @@
+/**
+ * filter-form bem module
+ */
+
+.filter-form {
+    margin-bottom: 5rem;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 3.2rem;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+    }
+}
