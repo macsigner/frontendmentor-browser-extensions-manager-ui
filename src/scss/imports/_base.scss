@@ -23,6 +23,7 @@ body {
     letter-spacing: math.div(-0.5em, 16);
     color: #535868;
     background-image: linear-gradient(to bottom, #EBF2FC, #EEFBF9), linear-gradient(to bottom, #FFF, #FFF);
+    min-height: 100lvh;
 
     @include media.tablet {
         padding: 2.4rem 3.2rem 6.4rem;
