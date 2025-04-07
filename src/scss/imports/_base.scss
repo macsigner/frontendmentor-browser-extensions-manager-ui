@@ -1,13 +1,55 @@
 @use 'sass:math';
 @use 'mixins/media';
 
+@mixin colors-light {
+    --color-title: #091540;
+    --color-check-neutral: #C6C6C6;
+    --color-check: #C7231A;
+    --color-main-header-button-background: #EEE;
+    --color-item-background: #fbfdfe;
+    --color-body: #535868;
+    --color-header-shadow: #D9E5F4;
+    --color-border: #d6e2f5;
+    --img-url-mode-switch: url('../assets/images/icon-moon.svg');
+    --body-gradient: linear-gradient(to bottom, #EBF2FC, #EEFBF9), linear-gradient(to bottom, #FFF, #FFF);
+}
+
+@mixin colors-dark {
+    --color-title: #fbfdfe;
+    --color-check-neutral: #535868;
+    --color-check: #C7231A;
+    --color-main-header-button-background: #2f364b;
+    --color-item-background: #202535;
+    --color-body: #c6c6c6;
+    --color-header-shadow: transparent;
+    --color-border: #535868;
+    --color-logo-writing: var(--color-title);
+    --img-url-mode-switch: url('../assets/images/icon-sun.svg');
+    --body-gradient: linear-gradient(to bottom, #04091b, #091540);
+}
+
 :root {
     --gap: 1.2rem;
     --default-radius: 2rem;
 
-    --color-neutral-900: #091540;
-    --color-neutral-300: #C6C6C6;
-    --color-red-700: #C7231A;
+    // Colors
+    @include colors-light;
+
+    @media (prefers-color-scheme: light){
+        @include colors-light;
+
+        &.mode-alt {
+            @include colors-dark;
+        }
+    }
+
+    @media (prefers-color-scheme: dark){
+        @include colors-dark;
+
+        &.mode-alt {
+            @include colors-light;
+        }
+    }
 }
 
 html {
@@ -22,8 +64,8 @@ body {
     font-stretch: normal;
     font-style: normal;
     letter-spacing: math.div(-0.5em, 16);
-    color: #535868;
-    background-image: linear-gradient(to bottom, #EBF2FC, #EEFBF9), linear-gradient(to bottom, #FFF, #FFF);
+    color: var(--color-body);
+    background-image: var(--body-gradient);
     min-height: 100lvh;
 
     @include media.tablet {
@@ -35,7 +77,8 @@ body {
     }
 }
 
-img {
+img,
+svg {
     vertical-align: middle;
     height: auto;
     max-width: 100%;
@@ -58,5 +101,5 @@ h2 {
     font-style: normal;
     line-height: 1;
     letter-spacing: -1px;
-    color: var(--color-neutral-900);
+    color: var(--color-title);
 }

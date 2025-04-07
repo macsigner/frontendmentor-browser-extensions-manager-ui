@@ -3,7 +3,7 @@
  */
 
 .check {
-    --check-bg-color: var(--color-neutral-300);
+    --check-bg-color: var(--color-check-neutral);
 
     display: flex;
     justify-content: flex-start;
@@ -24,7 +24,7 @@
     }
 
     &:has(:checked) {
-        --check-bg-color: var(--color-red-700);
+        --check-bg-color: var(--color-check);
         justify-content: flex-end;
     }
 }

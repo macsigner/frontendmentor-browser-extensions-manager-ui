@@ -9,17 +9,17 @@
     margin-bottom: 4rem;
     padding: 8px 12px;
     border-radius: 1rem;
-    box-shadow: 0 .2rem .3rem 0 #D9E5F4;
-    border: solid 1px #D6E2F5;
-    background-color: #FBFDFE;
+    box-shadow: 0 .2rem .3rem 0 var(--color-header-shadow);
+    border: solid 1px var(--color-border);
+    background-color: var(--color-item-background);
 
     button {
         width: 5rem;
         aspect-ratio: 1;
         padding: 0;
         border-radius: 1.2rem;
-        background-color: #EEE;
-        background-image: url('../assets/images/icon-moon.svg');
+        background-color: var(--color-main-header-button-background);
+        background-image: var(--img-url-mode-switch);
         background-repeat: no-repeat;
         background-position: center;
     }

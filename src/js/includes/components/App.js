@@ -13,6 +13,9 @@ export default class App {
         this.#el = el;
         this.#itemWrapper = el.querySelector('#app');
         this.#filterForm = this.#el.querySelector('.filter-form');
+        document.addEventListener('click', delegate('.main-header button', () => {
+            document.documentElement.classList.toggle('mode-alt');
+        }));
 
         this.#filterForm.addEventListener('change', e => {
             const formData = new FormData(e.target.form);

@@ -12,8 +12,8 @@
     padding: 2rem;
     border-radius: var(--default-radius);
     box-shadow: 0 1px 5px 1px rgba(194, 206, 225, 0.22), 0 2px 2px 0 rgba(194, 206, 225, 0.2);
-    border: solid 1px #d6e2f5;
-    background-color: #fbfdfe;
+    border: solid 1px var(--color-border);
+    background-color: var(--color-item-background);
 
     &__image {
         grid-area: icon;
@@ -38,6 +38,6 @@
         font-style: normal;
         line-height: 1.2;
         letter-spacing: math.div(-0.2em, 20);
-        color: var(--color-neutral-900);
+        color: var(--color-title);
     }
 }

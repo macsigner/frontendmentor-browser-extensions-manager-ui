@@ -5,7 +5,7 @@
 
 .button {
     padding: .8rem 1.6rem;
-    border: 1px solid var(--color-neutral-300);
+    border: 1px solid var(--color-check-neutral);
     border-radius: 99em;
     font-size: 1.6rem;
     font-weight: 500;
@@ -13,12 +13,12 @@
     font-style: normal;
     line-height: 1.4;
     letter-spacing: math.div(-0.5em, 16);
-    color: var(--color-neutral-900);
-    background-color: #fbfdfe;
+    color: var(--color-title);
+    background-color: var(--color-item-background);
 
     &.is-active,
     &:where(:has(:checked)){
-        color: #fbfdfe;
-        background-color: var(--color-red-700);
+        color: var(--color-item-background);
+        background-color: var(--color-check);
     }
 }
